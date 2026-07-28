@@ -44,7 +44,7 @@ const CATEGORIES = {
   glass: {
     id: "glass",
     name: "유리병",
-    icon: "🫙",
+    icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="18" y="4" width="12" height="6" rx="1.5" fill="currentColor" stroke="none"/><path d="M20 10 v8 M28 10 v8"/><path d="M20 18 L13 27 V40 a3 3 0 0 0 3 3 H32 a3 3 0 0 0 3 -3 V27 L28 18 Z"/></g></svg>`,
     examples: "스킨·토너·향수·앰플 유리 용기 등",
     desc: "목과 마개가 있는 유리 재질 용기",
     parts: [
@@ -74,11 +74,12 @@ const CATEGORIES = {
         id: "label",
         title: "라벨",
         question: "라벨은 어떻게 부착되어 있나요?",
+        help: "'수축(슈링크)·스트레치 라벨'은 열이나 압력을 가하면 병 모양에 맞게 오그라들어 씌워지는 필름 라벨로, 접착제 없이 몸체를 감싸는 형태입니다. '절취선'은 잡아당겨 뜯을 수 있도록 만든 얇은 절단선(보통 세로 방향)입니다.",
         options: [
           { value: "none", label: "라벨 없음 (또는 제조일자·유통기한만 표시)", grade: GRADE.GOOD },
           { value: "paper", label: "종이 라벨", grade: GRADE.GOOD },
           { value: "shrink_cut", label: "비접착식 합성수지 라벨(수축·스트레치) + 절취선 있음", grade: GRADE.GOOD },
-          { value: "shrink_nocut", label: "비접착식 합성수지 라벨, 절취선 없음", grade: GRADE.NORMAL },
+          { value: "shrink_nocut", label: "비접착식 합성수지 라벨(수축·스트레치), 절취선 없음", grade: GRADE.NORMAL },
           { value: "adhesive_removable", label: "접착식 합성수지 라벨, 몸체와 분리 가능", grade: GRADE.NORMAL },
           { value: "adhesive_fixed", label: "접착식 합성수지 라벨, 몸체와 분리 불가능", grade: GRADE.POOR },
           { value: "direct_print", label: "몸체에 직접 인쇄(제조일자·유통기한 표시 제외)", grade: GRADE.POOR },
@@ -90,7 +91,7 @@ const CATEGORIES = {
         id: "cap",
         title: "마개 및 잡자재",
         question: "마개(뚜껑)와 부속품(펌프, 스포이드, 잡자재 등)은 어떤 구조인가요?",
-        help: "'뚜껑·테 분리형'은 뚜껑을 열 때 링(테)만 병목에 남는 구조, '일체형'은 뚜껑과 테가 함께 빠지는 구조입니다.",
+        help: "'뚜껑·테 분리형'은 뚜껑을 열 때 얇은 링(테)이 떨어져 나가지 않고 병목에 그대로 남는 구조입니다 (예: 일부 향수병의 변조방지 링). '일체형'은 뚜껑을 열면 링까지 통째로 함께 빠지는 구조입니다. 헷갈리면 실제로 뚜껑을 한 번 열어 확인해보세요.",
         options: [
           { value: "cap_body_together", label: "뚜껑·테 일체형 (열면 뚜껑과 테가 함께 빠짐)", grade: GRADE.GOOD },
           { value: "cap_separable", label: "그 외 몸체와 분리 가능한 마개·펌프·스포이드", grade: GRADE.GOOD },
@@ -133,7 +134,7 @@ const CATEGORIES = {
   pet_bottle: {
     id: "pet_bottle",
     name: "페트병",
-    icon: "🧴",
+    icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="19" y="4" width="10" height="5" rx="1.2" fill="currentColor" stroke="none"/><path d="M21 9 v6 M27 9 v6"/><path d="M21 15 L15 22 V41 a2 2 0 0 0 2 2 H31 a2 2 0 0 0 2 -2 V22 L27 15 Z"/><rect x="15" y="28" width="18" height="8" fill="currentColor" stroke="none" opacity="0.18"/></g></svg>`,
     examples: "목과 나사식 마개가 있는 PET 재질 토너·샴푸·바디워시 용기 등",
     desc: "목(구경)과 마개가 있는 음료병 형태의 PET 단일재질 용기",
     parts: [
@@ -141,6 +142,7 @@ const CATEGORIES = {
         id: "body",
         title: "몸체",
         question: "PET 용기 몸체의 재질·색상은 어떤가요?",
+        help: "용기 바닥이나 옆면의 삼각형 재활용 표시 안 숫자로 재질을 확인할 수 있어요: ♳(1)=PET, ♴(2)=HDPE, ♵(3)=PVC, ♶(4)=LDPE, ♷(5)=PP, ♸(6)=PS. 확실하지 않으면 자재 발주 규격서나 용기 제조업체에 문의해보세요.",
         options: [
           { value: "colorless_single", label: "무색(투명) 단일재질", grade: GRADE.GOOD, tag: "eliteBody" },
           { value: "green_single", label: "녹색 단일재질", grade: GRADE.NORMAL },
@@ -153,18 +155,19 @@ const CATEGORIES = {
         id: "label",
         title: "라벨",
         question: "라벨은 어떻게 부착되어 있나요?",
-        help: "'열알칼리성 분리 접착제'는 재활용 세척 공정(80℃·수산화나트륨 2%)에서 라벨이 저절로 떨어지도록 설계된 특수 접착제입니다. 라벨 부자재 업체에 이 접착제 사용 여부를 확인하면 됩니다.",
+        help: "(비중 1미만 라벨 재질: PP·PE·OPP(연신 폴리프로필렌) 등 — 흔히 쓰는 반투명·유백색 필름 / 비중 1이상 라벨 재질: PET·PS 등 — 몸체와 같은 투명 재질의 라벨필름) '수축(슈링크)·스트레치 라벨'은 열이나 압력으로 병 모양에 맞게 씌우는 필름으로, OPP 재질이면 비중 1미만, PET·PVC 재질이면 비중 1이상인 경우가 많습니다. '열알칼리성 분리 접착제'는 재활용 세척 공정(80℃·수산화나트륨 2%)에서 라벨이 저절로 떨어지도록 설계된 특수 접착제입니다. 재질·접착제 종류가 헷갈리면 라벨 부자재 업체나 발주 규격서를 확인하면 가장 정확합니다.",
+        companyNote: "당사가 일반적으로 사용하는 라벨 접착제는 열알칼리성 분리가 가능하지만, 도포면적이 라벨 면적의 60%를 넘는 경우가 많습니다. 이 경우 아래 목록에서 <strong>'열알칼리성 분리 접착제 사용, 도포면적 기준 초과'</strong> 항목에 해당하며 등급은 '보통'입니다. 정확한 도포면적은 라벨 부자재 업체에 문의해 확인하세요.",
         options: [
           { value: "none", label: "라벨 없음", grade: GRADE.GOOD, tag: "elite" },
           { value: "cap_only", label: "라벨이 마개에만 붙어 있어 마개를 열면 라벨도 같이 분리됨", grade: GRADE.GOOD, tag: "elite" },
-          { value: "cut_line_nonadhesive", label: "비중 1미만 + 절취선 있는 비접착식 라벨", grade: GRADE.GOOD, tag: "elite" },
-          { value: "tiny_adhesive", label: "비중 1미만 + 열알칼리성 분리 접착제 극소량(라벨의 0.5% 미만, 가장자리 미도포)", grade: GRADE.GOOD, tag: "elite" },
-          { value: "thermo_adhesive_ok", label: "비중 1미만 + 열알칼리성 분리 접착제(도포면적 기준 충족, 가장자리 미도포)", grade: GRADE.GOOD },
-          { value: "nonadhesive_nocut", label: "비중 1미만 + 비접착식 라벨, 절취선 없음", grade: GRADE.NORMAL },
-          { value: "thermo_adhesive_edge", label: "비중 1미만 + 열알칼리성 분리 접착제(가장자리까지 도포)", grade: GRADE.NORMAL },
-          { value: "thermo_adhesive_over", label: "비중 1미만 + 열알칼리성 분리 접착제(도포면적 기준 초과)", grade: GRADE.NORMAL },
-          { value: "heavy_cutline", label: "비중 1이상 합성수지 + 절취선 있음", grade: GRADE.NORMAL },
-          { value: "heavy_nocut", label: "비중 1이상 합성수지, 절취선 없음/가장자리 도포", grade: GRADE.POOR },
+          { value: "cut_line_nonadhesive", label: "비중 1미만(OPP 등) + 절취선 있는 비접착식 라벨(수축·스트레치)", grade: GRADE.GOOD, tag: "elite" },
+          { value: "tiny_adhesive", label: "비중 1미만(OPP 등) + 열알칼리성 분리 접착제 극소량(라벨의 0.5% 미만, 가장자리 미도포)", grade: GRADE.GOOD, tag: "elite" },
+          { value: "thermo_adhesive_ok", label: "비중 1미만(OPP 등) + 열알칼리성 분리 접착제(도포면적: 전체 20%·라벨 60% 이하, 가장자리 미도포)", grade: GRADE.GOOD },
+          { value: "nonadhesive_nocut", label: "비중 1미만(OPP 등) 비접착식 라벨(수축·스트레치), 절취선 없음", grade: GRADE.NORMAL },
+          { value: "thermo_adhesive_edge", label: "비중 1미만(OPP 등) + 열알칼리성 분리 접착제(가장자리까지 도포)", grade: GRADE.NORMAL },
+          { value: "thermo_adhesive_over", label: "비중 1미만(OPP 등) + 열알칼리성 분리 접착제(도포면적이 라벨의 60% 초과 등 기준 초과)", grade: GRADE.NORMAL, common: true },
+          { value: "heavy_cutline", label: "비중 1이상(PET·PS 등) 합성수지 + 절취선 있음", grade: GRADE.NORMAL },
+          { value: "heavy_nocut", label: "비중 1이상(PET·PS 등) 합성수지, 절취선 없음 또는 가장자리 도포", grade: GRADE.POOR },
           { value: "general_adhesive", label: "일반 접착제(열알칼리성 분리 불가) 사용", grade: GRADE.POOR },
           { value: "direct_print", label: "몸체에 직접 인쇄(제조일자·유통기한 표시 제외)", grade: GRADE.POOR },
           { value: "pvc", label: "PVC 계열 재질", grade: GRADE.POOR, warnBanned: true },
@@ -176,12 +179,12 @@ const CATEGORIES = {
         id: "cap",
         title: "마개 및 잡자재",
         question: "마개·펌프·잡자재는 어떤 재질인가요?",
-        help: "'비중 1미만 합성수지'는 물에 뜨는 재질(PP, PE 등), '비중 1이상'은 물에 가라앉는 재질입니다(예: PET, POM 등 일부 엔지니어링 플라스틱).",
+        help: "(비중 1미만 재질: PP 등 — 가볍고 물에 뜨는 재질, 흔히 쓰는 마개·펌프 하우징 / 비중 1이상 재질: PET·POM(폼알데하이드 수지) 등 — 딱딱하고 물에 가라앉는 재질) 스프링이 들어간 펌프처럼 금속이 섞여 있으면 '합성수지 이외 재질' 항목을 선택하세요.",
         options: [
           { value: "colorless_pet", label: "무색 PET 단일재질", grade: GRADE.GOOD },
           { value: "light_plastic", label: "비중 1미만의 합성수지(PP 등)", grade: GRADE.GOOD },
-          { value: "nonplastic_full_separable", label: "합성수지 이외 재질(금속 스프링 펌프 등)이지만 완전 분리 가능", grade: GRADE.NORMAL },
-          { value: "heavy_plastic", label: "비중 1이상의 합성수지", grade: GRADE.NORMAL },
+          { value: "nonplastic_full_separable", label: "합성수지 이외 재질(금속 스프링이 든 펌프 등)이지만 완전 분리 가능", grade: GRADE.NORMAL },
+          { value: "heavy_plastic", label: "비중 1이상의 합성수지(PET, POM 등)", grade: GRADE.NORMAL },
           { value: "nonplastic_light_mixed", label: "합성수지 이외 재질이 섞인 비중 1미만 잡자재", grade: GRADE.NORMAL },
           { value: "pvc", label: "PVC 계열 재질", grade: GRADE.POOR, warnBanned: true },
         ],
@@ -216,7 +219,7 @@ const CATEGORIES = {
   rigid_container: {
     id: "rigid_container",
     name: "합성수지 단일용기·트레이",
-    icon: "🧴",
+    icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="10" y="10" width="28" height="8" rx="2" fill="currentColor" stroke="none" opacity="0.9"/><path d="M12 18 H36 V38 a4 4 0 0 1 -4 4 H16 a4 4 0 0 1 -4 -4 Z"/></g></svg>`,
     examples: "크림 자, 쿠션 케이스, 목 없는 로션 용기, 컴팩트 트레이 등",
     desc: "목(구경)과 나사 마개가 없는 PE·PP·PS·PET 등 단일재질 용기/트레이",
     parts: [
@@ -224,6 +227,7 @@ const CATEGORIES = {
         id: "body",
         title: "몸체",
         question: "용기 몸체의 재질은 무엇인가요?",
+        help: "용기 바닥의 삼각형 재활용 표시 안 숫자로 재질을 확인할 수 있어요: ♳(1)=PET, ♴(2)=HDPE, ♵(3)=PVC, ♶(4)=LDPE, ♷(5)=PP, ♸(6)=PS. 예: 크림 자·쿠션 케이스는 주로 PP나 AS수지, 목 없는 로션 용기는 PE·PP인 경우가 많습니다. 확실하지 않으면 용기 제조업체에 문의해보세요.",
         options: [
           { value: "pe_pp_ps_etc", label: "PE / PP / PS 등 PET 이외의 단일재질", grade: GRADE.GOOD },
           { value: "pet_colorless", label: "PET 단일재질, 무색(투명)", grade: GRADE.GOOD, tag: "elitePet" },
@@ -236,7 +240,7 @@ const CATEGORIES = {
         id: "label_cap",
         title: "라벨·마개 및 잡자재",
         question: "라벨/마개/뚜껑 등 부속은 몸체와 어떤 관계인가요?",
-        help: "몸체가 PET인지 아닌지에 따라 기준이 달라지므로, 위에서 선택한 몸체 재질을 기준으로 가장 가까운 항목을 골라주세요.",
+        help: "예: 크림 자 뚜껑, 쿠션 케이스 뚜껑·퍼프, 로션 용기의 눌러쓰는 캡 등이 여기 해당합니다. 몸체가 PET인지 아닌지에 따라 기준이 달라지므로, 위에서 선택한 몸체 재질을 기준으로 가장 가까운 항목을 골라주세요.",
         options: [
           { value: "none", label: "미사용 (라벨·마개·잡자재 없음)", grade: GRADE.GOOD, tag: "none" },
           { value: "direct_print", label: "몸체에 직접 인쇄", grade: GRADE.GOOD },
@@ -273,7 +277,7 @@ const CATEGORIES = {
   composite: {
     id: "composite",
     name: "복합재질 용기·트레이 / 필름·시트류",
-    icon: "🧃",
+    icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="20" y="4" width="8" height="6" rx="1.5" fill="currentColor" stroke="none"/><path d="M21 10 h6 l3 8 a6 6 0 0 1 1 3 V37 a3 3 0 0 1 -3 3 H20 a3 3 0 0 1 -3 -3 V21 a6 6 0 0 1 1 -3 Z"/><path d="M15 40 h18"/></g></svg>`,
     examples: "튜브(다층 라미네이트), 리필 파우치, 샘플 봉지, 블리스터 포장 등",
     desc: "2가지 이상 재질이 결합된 용기·트레이, 또는 필름·시트형 포장재",
     parts: [
@@ -281,6 +285,7 @@ const CATEGORIES = {
         id: "body",
         title: "몸체",
         question: "몸체(튜브/파우치/필름)는 어떤 구조인가요?",
+        help: "예: 치약형 튜브(속에 알루미늄박이 들어간 경우가 많음), 리필용 파우치, 샘플 봉지, 시트마스크 개별 포장, 정제 알약처럼 뚜껑을 눌러 뜯는 블리스터 포장 등이 여기 해당합니다. 알루미늄이 들어간 경우 두께가 얇을수록(20㎛ 이하) 등급에 유리합니다.",
         options: [
           { value: "composite_container", label: "복합재질 용기·트레이 (합성수지 2종 이상, 또는 합성수지+비합성수지)", grade: GRADE.GOOD },
           { value: "film_al_thin", label: "필름·시트류 (알루미늄을 포함해도 두께 20㎛ 이하)", grade: GRADE.GOOD },
@@ -319,7 +324,7 @@ const CATEGORIES = {
   metal_can: {
     id: "metal_can",
     name: "금속캔 (스프레이·에어로졸)",
-    icon: "🧯",
+    icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M22 6 h4 M24 6 v4"/><rect x="16" y="10" width="16" height="6" rx="1.5"/><rect x="12" y="16" width="24" height="26" rx="3"/><path d="M12 22 H36" opacity="0.3"/></g></svg>`,
     examples: "헤어스프레이, 선케어 스프레이, 무스형 클렌저 등 에어로졸 캔",
     desc: "철 또는 알루미늄 재질의 스프레이·에어로졸 캔",
     parts: [
@@ -327,6 +332,7 @@ const CATEGORIES = {
         id: "body",
         title: "몸체",
         question: "캔의 주재질과 구조는 어떤가요?",
+        help: "예: 헤어스프레이, 자외선차단 스프레이, 무스형 클렌저 캔 등이 여기 해당합니다. 구분이 어렵다면 캔에 자석을 대보세요 — 철(스틸)은 자석에 붙고, 알루미늄은 붙지 않습니다.",
         options: [
           { value: "steel_single", label: "철(스틸) 단일재질", grade: GRADE.GOOD, tag: "steel" },
           { value: "alu_single", label: "알루미늄 단일재질", grade: GRADE.GOOD, tag: "alu" },

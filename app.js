@@ -81,6 +81,7 @@ function renderQuestions() {
       <h3>${part.title}</h3>
       <p class="q-text">${part.question}</p>
       ${part.help ? `<p class="q-help">${part.help}</p>` : ""}
+      ${part.companyNote ? `<div class="hint-box">💡 ${part.companyNote}</div>` : ""}
       <div class="option-list" data-part="${part.id}"></div>
     `;
     const list = group.querySelector(".option-list");
@@ -89,7 +90,7 @@ function renderQuestions() {
       label.className = "option-item";
       label.innerHTML = `
         <input type="radio" name="${part.id}" value="${opt.value}" />
-        <span>${opt.label}</span>
+        <span>${opt.label}${opt.common ? '<span class="opt-badge">당사 대표 사례</span>' : ""}</span>
       `;
       label.addEventListener("click", () => {
         list.querySelectorAll(".option-item").forEach((el) => el.classList.remove("checked"));

@@ -124,7 +124,14 @@ h2 { font-size: 21px; margin: 0 0 6px; }
   box-shadow: var(--shadow);
   transform: translateY(-2px);
 }
-.category-card .cat-icon { font-size: 30px; }
+.category-card .cat-icon {
+  color: var(--primary);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+.category-card .cat-icon svg { width: 44px; height: 44px; }
 .category-card h3 { margin: 4px 0 0; font-size: 16px; }
 .category-card p { margin: 0; font-size: 12.5px; color: var(--text-muted); }
 
@@ -138,7 +145,25 @@ h2 { font-size: 21px; margin: 0 0 6px; }
   margin-bottom: 16px;
   font-family: inherit;
 }
-.back-link { display: inline-block; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+.back-link:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-tint);
+}
 
 .question-group {
   background: var(--surface);
@@ -160,6 +185,40 @@ h2 { font-size: 21px; margin: 0 0 6px; }
   color: var(--text-muted);
   margin: 0 0 12px;
 }
+.hint-box {
+  background: var(--primary-tint);
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: var(--text);
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+.hint-box strong { color: var(--primary); }
+
+.opt-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--grade-normal-tint);
+  color: var(--grade-normal);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.generic-tip {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 4px 0 16px;
+}
+
 .option-list { display: flex; flex-direction: column; gap: 8px; }
 .option-item {
   display: flex;
