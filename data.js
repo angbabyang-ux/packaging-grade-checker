@@ -288,7 +288,7 @@ const CATEGORIES = {
     id: "composite",
     name: "복합재질 용기·트레이 / 필름·시트류",
     icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="20" y="4" width="8" height="6" rx="1.5" fill="currentColor" stroke="none"/><path d="M21 10 h6 l3 8 a6 6 0 0 1 1 3 V37 a3 3 0 0 1 -3 3 H20 a3 3 0 0 1 -3 -3 V21 a6 6 0 0 1 1 -3 Z"/><path d="M15 40 h18"/></g></svg>`,
-    photos: [],
+    photos: ["images/composite-1.png", "images/composite-2.png"],
     examples: "튜브(다층 라미네이트), 리필 파우치, 샘플 봉지, 블리스터 포장 등",
     desc: "2가지 이상 재질이 결합된 용기·트레이, 또는 필름·시트형 포장재",
     parts: [
