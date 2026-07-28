@@ -48,6 +48,7 @@ const CATEGORIES = {
     id: "glass",
     name: "유리병",
     icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="18" y="4" width="12" height="6" rx="1.5" fill="currentColor" stroke="none"/><path d="M20 10 v8 M28 10 v8"/><path d="M20 18 L13 27 V40 a3 3 0 0 0 3 3 H32 a3 3 0 0 0 3 -3 V27 L28 18 Z"/></g></svg>`,
+    photos: [], // images/glass-1.jpg 등 최대 4장의 경로를 넣으면 카드에 아이콘 대신 실제 제품 사진이 표시됩니다.
     examples: "스킨·토너·향수·앰플 유리 용기 등",
     desc: "목과 마개가 있는 유리 재질 용기",
     parts: [
@@ -138,6 +139,7 @@ const CATEGORIES = {
     id: "pet_bottle",
     name: "페트병",
     icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="19" y="4" width="10" height="5" rx="1.2" fill="currentColor" stroke="none"/><path d="M21 9 v6 M27 9 v6"/><path d="M21 15 L15 22 V41 a2 2 0 0 0 2 2 H31 a2 2 0 0 0 2 -2 V22 L27 15 Z"/><rect x="15" y="28" width="18" height="8" fill="currentColor" stroke="none" opacity="0.18"/></g></svg>`,
+    photos: [],
     examples: "목과 나사식 마개가 있는 PET 재질 토너·샴푸·바디워시 용기 등",
     desc: "목(구경)과 마개가 있는 음료병 형태의 PET 단일재질 용기",
     sgExamples: {
@@ -227,6 +229,7 @@ const CATEGORIES = {
     id: "rigid_container",
     name: "합성수지 단일용기·트레이",
     icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="10" y="10" width="28" height="8" rx="2" fill="currentColor" stroke="none" opacity="0.9"/><path d="M12 18 H36 V38 a4 4 0 0 1 -4 4 H16 a4 4 0 0 1 -4 -4 Z"/></g></svg>`,
+    photos: [],
     examples: "크림 자(JAR), 쿠션 케이스, 목 없는 로션 용기, 컴팩트 트레이 등",
     desc: "목(구경)과 나사 마개가 없는 PE·PP·PS·PET 등 단일재질 용기/트레이 (JAR 타입 포함)",
     parts: [
@@ -285,6 +288,7 @@ const CATEGORIES = {
     id: "composite",
     name: "복합재질 용기·트레이 / 필름·시트류",
     icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="20" y="4" width="8" height="6" rx="1.5" fill="currentColor" stroke="none"/><path d="M21 10 h6 l3 8 a6 6 0 0 1 1 3 V37 a3 3 0 0 1 -3 3 H20 a3 3 0 0 1 -3 -3 V21 a6 6 0 0 1 1 -3 Z"/><path d="M15 40 h18"/></g></svg>`,
+    photos: [],
     examples: "튜브(다층 라미네이트), 리필 파우치, 샘플 봉지, 블리스터 포장 등",
     desc: "2가지 이상 재질이 결합된 용기·트레이, 또는 필름·시트형 포장재",
     parts: [
@@ -332,6 +336,7 @@ const CATEGORIES = {
     id: "metal_can",
     name: "금속캔 (스프레이·에어로졸)",
     icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M22 6 h4 M24 6 v4"/><rect x="16" y="10" width="16" height="6" rx="1.5"/><rect x="12" y="16" width="24" height="26" rx="3"/><path d="M12 22 H36" opacity="0.3"/></g></svg>`,
+    photos: [],
     examples: "헤어스프레이, 선케어 스프레이, 무스형 클렌저 등 에어로졸 캔",
     desc: "철 또는 알루미늄 재질의 스프레이·에어로졸 캔",
     parts: [

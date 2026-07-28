@@ -47,8 +47,14 @@ function renderCategoryGrid() {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "category-card";
+    const photos = (cat.photos || []).slice(0, 4);
+    const mediaHtml = photos.length
+      ? `<div class="cat-photo-grid count-${photos.length}">${photos
+          .map((src) => `<img src="${src}" alt="${cat.name} 예시 제품" loading="lazy" />`)
+          .join("")}</div>`
+      : `<span class="cat-icon">${cat.icon}</span>`;
     btn.innerHTML = `
-      <span class="cat-icon">${cat.icon}</span>
+      ${mediaHtml}
       <h3>${cat.name}</h3>
       <p>${cat.desc}</p>
       <p><em>${cat.examples}</em></p>
