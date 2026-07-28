@@ -5,16 +5,16 @@ const TIPS = {
     body_color: "무색(투명) 유리로 설계하면 몸체 등급이 올라갑니다.",
     body_coating: "표면 도색·코팅을 없애면 몸체 등급이 올라갑니다.",
     label: "라벨을 없애거나 종이 라벨, 절취선이 있는 비접착식 라벨로 바꾸면 등급이 올라갑니다.",
-    cap: "뚜껑을 열 때 몸체와 완전히 분리되는 구조(뚜껑·테 일체형)로 설계하면 등급이 올라갑니다.",
+    cap: "캡을 열 때 몸체와 완전히 분리되는 구조(뚜껑·테 일체형)로 설계하면 등급이 올라갑니다.",
   },
   pet_bottle: {
     body: "무색 PET 단일재질로 설계하면 몸체 등급이 올라갑니다.",
     label: "라벨을 없애거나, 열알칼리성 분리 접착제와 절취선을 적용하면 등급을 크게 높일 수 있습니다.",
-    cap: "무색 PET 또는 비중 1미만의 가벼운 합성수지(PP 등)로 마개·펌프를 설계하면 등급이 올라갑니다.",
+    cap: "무색 PET 또는 비중 1미만의 가벼운 합성수지(PP 등)로 캡·펌프를 설계하면 등급이 올라갑니다.",
   },
   rigid_container: {
     body: "PET를 쓴다면 무색 단일재질로, 그 외에는 PE·PP 단일재질로 설계하면 등급이 올라갑니다.",
-    label_cap: "라벨·마개를 없애거나, 몸체와 동일 계열 재질(PP+PE 등)로 통일하면 등급이 올라갑니다.",
+    label_cap: "라벨·캡을 없애거나, 몸체와 동일 계열 재질(PP+PE 등)로 통일하면 등급이 올라갑니다.",
   },
   composite: {
     body: "알루미늄을 쓴다면 두께 20㎛ 이하로 설계하고, 그 외 비합성수지 재질 병용은 피하세요.",
@@ -71,6 +71,18 @@ function renderQuestions() {
   document.getElementById("questions-title").textContent = `2. ${cat.name} — 재질·구조를 알려주세요`;
   document.getElementById("questions-sub").textContent = cat.examples;
 
+  const sgBox = document.getElementById("sg-glossary");
+  if (cat.sgExamples) {
+    sgBox.innerHTML = `
+      <div class="sg-item sg-light"><span class="sg-icon">💧</span><div><strong>비중 1 미만 재질 (물에 뜸)</strong><p>${cat.sgExamples.light}</p></div></div>
+      <div class="sg-item sg-heavy"><span class="sg-icon">🪨</span><div><strong>비중 1 이상 재질 (물에 가라앉음)</strong><p>${cat.sgExamples.heavy}</p></div></div>
+    `;
+    sgBox.classList.remove("hidden");
+  } else {
+    sgBox.classList.add("hidden");
+    sgBox.innerHTML = "";
+  }
+
   const form = document.getElementById("question-form");
   form.innerHTML = "";
 
@@ -90,7 +102,7 @@ function renderQuestions() {
       label.className = "option-item";
       label.innerHTML = `
         <input type="radio" name="${part.id}" value="${opt.value}" />
-        <span>${opt.label}${opt.common ? '<span class="opt-badge">당사 대표 사례</span>' : ""}</span>
+        <span>${opt.name ? `<span class="opt-name">${opt.name}</span>` : ""}${opt.common ? '<span class="opt-badge">당사 대표 사례</span>' : ""}<span class="opt-detail">${opt.label}</span></span>
       `;
       label.addEventListener("click", () => {
         list.querySelectorAll(".option-item").forEach((el) => el.classList.remove("checked"));

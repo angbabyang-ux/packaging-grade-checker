@@ -185,6 +185,44 @@ h2 { font-size: 21px; margin: 0 0 6px; }
   color: var(--text-muted);
   margin: 0 0 12px;
 }
+.sg-glossary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.sg-glossary.hidden { display: none; }
+.sg-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+}
+.sg-item .sg-icon { font-size: 22px; line-height: 1; }
+.sg-item strong { font-size: 13.5px; display: block; margin-bottom: 3px; }
+.sg-item p { margin: 0; font-size: 12.5px; color: var(--text-muted); }
+.sg-light { background: var(--grade-elite-tint); border-color: var(--grade-elite); }
+.sg-heavy { background: var(--surface-2); }
+
+@media (max-width: 560px) {
+  .sg-glossary { grid-template-columns: 1fr; }
+}
+
+.opt-name {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+}
+.opt-detail {
+  display: block;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.option-item .opt-badge { margin: 0 0 2px; }
+
 .hint-box {
   background: var(--primary-tint);
   border: 1px solid var(--primary);
